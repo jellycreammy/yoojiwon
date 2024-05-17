@@ -1,0 +1,16 @@
+{
+  "name": "my-game-project",
+  "version": "1.0.0",
+  "description": "아이템 시뮬레이터 만들기",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "유지원",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongoose": "^8.3.5"
+  }
+}
