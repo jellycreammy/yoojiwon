@@ -1,0 +1,6 @@
+nohup: ignoring input
+yarn run v1.22.22
+warning ..\..\package.json: No license field
+$ node app.js
+MongoDB 연결에 실패하였습니다. MongooseError: The `uri` parameter to `openUri()` must be a string, got "undefined". Make sure the first parameter to `mongoose.connect()` or `mongoose.createConnection()` is a string.
+3000 포트로 서버가 열렸습니다.

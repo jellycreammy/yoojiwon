@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// 모델 정의 추가
+model User {
+  id        Int        @id @default(autoincrement())
+  username  String     @unique
+  password  String
+  characters Character[]
+}
+
+model Character {
+  id         Int        @id @default(autoincrement())
+  name       String
+  money      Int
+  appearance String
+  health     Int        @default(500)
+  power      Int        @default(100)
+  items      CharacterItem[]
+  ownerId    Int
+  owner      User       @relation(fields: [ownerId], references: [id])
+}
+
+model Item {
+  id       Int      @id @default(autoincrement())
+  itemCode Int      @unique
+  itemName String
+  itemStatId Int
+  itemStat ItemStat @relation(fields: [itemStatId], references: [id])
+  price    Float
+  characters CharacterItem[]
+}
+
+model CharacterItem {
+  id          Int      @id @default(autoincrement())
+  characterId Int
+  itemId      Int
+  character   Character @relation(fields: [characterId], references: [id])
+  item        Item      @relation(fields: [itemId], references: [id])
+}
+
+model ItemStat {
+  id     Int @id @default(autoincrement())
+  health Int
+  power  Int
+  item   Item[]
+}
