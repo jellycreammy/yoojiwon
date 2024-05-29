@@ -1,4 +1,3 @@
-// routes/characters.router.js
 
 import express from 'express';
 import Character from '../schemas/characters.schema.js';
